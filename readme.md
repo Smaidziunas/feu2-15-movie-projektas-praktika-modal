@@ -8,3 +8,5 @@
    jei paspaudzian patvirtinti, tai toliau vyksta istrinimas
 
 2. prisideti filtra filtruoti pagal title.
+
+3. jei per sunku, pradedam nuo pradziu ir pradedam isnaujo.

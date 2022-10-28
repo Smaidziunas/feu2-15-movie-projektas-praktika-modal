@@ -1,3 +1,5 @@
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css');
+
 * {
   box-sizing: border-box;
 }
@@ -223,6 +225,13 @@ input:focus {
   z-index: 10;
   pointer-events: none;
   display: none;
+}
+
+.delete {
+  float: right;
+  cursor: pointer;
+  color:#ff3217;
+  font-size: 2rem;
 }
 
 #backdrop.visible {

@@ -35,3 +35,10 @@ jei per sunku. Tai gryztam i init saka ir pradedam viska nuo pradziu. atliekam p
 dabar visa informacija yra laikoma objektuose ir masyvuose, tam kad butu ja galima apdoruoti backende.
 
 todel, sukurta korteles atsiradima, aprasome kaip ojekta.
+
+1. Pradzioje <FORM> pries submit EVENTLISTENER sukuriam nauja mayvo var - [MAINARRAY]. Jis saugos visa nauja filmu informacija.
+2. Formos viduje, vietoje kur kvietem sukurto liEl funkcija, ir ja talpinom i DOM, ten kuriame nauja FUNCTION, kuri ides sia informacija kartu su <forEach> loop'u i [MAINARRAY].
+3. Funkcijos viduje vyksta 2 veiksmai - 1)ipushinam naujo filmo formos input data, 2)ipushinta data loopinam dedam i html ir APPENDinam i <ull>;
+
+- second
+-

@@ -18,6 +18,9 @@ const els = {
 };
 console.log("els ===", els);
 
+//============  BENDRAS filmu KINTAMASIS SUKURIAM NAUJA MOVIES MASYVA KURIAME ISAUGOSIME INFORMACIJA
+let mainMoviesArr = [];
+
 // EVENT LISTENERS ======================================================================
 //                  Parodom modala
 els.btns.movieBtn.addEventListener("click", () => {
@@ -55,14 +58,23 @@ els.lists.inputForm.addEventListener("submit", (event) => {
     return;
   }
 
-  // kuriam movie
-  const NewMovieHtmlEl = makeOneMovieHtmlEl(movieDetails);
-
-  //talpinam ta movie i dom
-  els.lists.UlMoviesCont.append(NewMovieHtmlEl);
+  // pridedam movie i FUNKCIJA, kuri ides naujo filmo details i masyva ir pasuks cikla, kuriame detales irasys i DOM;
+  addNewMovieHandler(NewMovieODetails);
 });
 
 // MAIN FUNCTIONS ======================================================================
+
+function addNewMovieHandler(newMovieObj) {
+  //pridedam filma i mainMovie arr
+  mainMoviesArr.push(newMovieObj);
+  //sukam cikla per visa ta MainMovies array, per kuri generuojam nauja filma:
+  mainMoviesArr.forEach((mObj) => {
+    // kuriam htmlEl vieno movie
+    const NewMovieHtmlEl = makeOneMovieHtmlEl(mObj);
+    //talpinam ta movie i dom
+    els.lists.UlMoviesCont.append(NewMovieHtmlEl);
+  });
+}
 
 function closeMovieModal() {
   // paslepti modala
@@ -72,7 +84,7 @@ function closeMovieModal() {
 }
 
 //=======================================================================================
-//                     =============     MOVIE HTML  ======================
+//                     =============     MOVIE HTML   ======================
 /**
  * sukuria ir grazina li elementa is argumentu gauto objekto reiksmiu
  * @param {object} NewMovieObj
@@ -88,7 +100,7 @@ function closeMovieModal() {
         </div>
       </li> -->
 */
-function makeOneMovieHtmlEl(NewMovieObj) {
+function makeOneMovieHtmlEl(NewMovieODetails) {
   //1.sukuriam liEl >> isorinis elementas <<<<
   const liEl = document.createElement("li");
   liEl.classList.add("movie-element");
@@ -96,11 +108,11 @@ function makeOneMovieHtmlEl(NewMovieObj) {
   //2.sukuriam divContaineri >> vidiniai elementai kaip stringas<<
   const liInsideHtml = `
   <div class="movie-element__image">
-    <img src="${NewMovieObj.imageUrl}" alt="element__image">
+    <img src="${NewMovieODetails.imageUrl}" alt="element__image">
   </div>
   <div class="movie-element__info">
-    <h2>${NewMovieObj.title}</h2>
-    <p>${NewMovieObj.rating}</p>
+    <h2>${NewMovieODetails.title}</h2>
+    <p>${NewMovieODetails.rating}</p>
   </div>
    `;
   //3. div patalpinam i jau aprasyta liEl >> talpinam i isorini elementa

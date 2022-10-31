@@ -12,11 +12,17 @@ prisideti filtra filtruoti pagal title
 
 jei per sunku. Tai gryztam i init saka ir pradedam viska nuo pradziu. atliekam panasiai tuos pacius funkcionalumo dalykus
 
+                #### ATMINTINE:
+
 - CODE REFACTORING - kodo sutraukimas i funkcijas, kad nesikartotu ir butu optimalesne versija
 - CANCEL BUTTON, type BUTTON. KIEKVIENAS MYGTUKAS siuncia forma nebent type nurodytas button.
 - Form.elements.VALUE - special tag for FORM.
 - ANY ELEMENT inside other element when creating element, could be obtained with [];
 - i TextContent nesikelia JS.
+- FORM.RESET() - isvalo FORM input values;
+- GENERATE random ID: Math.random().toFixed(8).slice(2);
+- Funkcijosviduje aprasytos funkcijos gali buti naudojamos uz funkcijos skliaustu, o kintamieji ne.
+- liEl.dataset.movieId = newMovieObj.id; - prideda data-movie-id atributa <liEl> elementui
 
 <!-- PIRMA DALIS  -->
 

@@ -45,6 +45,8 @@ todel, sukurta korteles atsiradima, aprasome kaip ojekta.
 1. Pradzioje <FORM> pries submit EVENTLISTENER sukuriam nauja mayvo var - [MAINARRAY]. Jis saugos visa nauja filmu informacija.
 2. Formos viduje, vietoje kur kvietem sukurto liEl funkcija, ir ja talpinom i DOM, ten kuriame nauja FUNCTION, kuri ides sia informacija kartu su <forEach> loop'u i [MAINARRAY].
 3. Funkcijos viduje vyksta 2 veiksmai - 1)ipushinam naujo filmo formos input data, 2)ipushinta data loopinam dedam i html ir APPENDinam i <ull>;
+4. Kad filmas butu istrinamas paspaudus ant Icon, kuriam nauja funkcija, kurioje aprasom filmo istrinima: 1) sukuriam kiekvienam <li> po i su .dataset() metodu, makeOneMovieHtml funkcijoje; 2) sukuriam id, artimiausiam <li> event.target'ui; 3) filtruojam su FILTER() funkcija per [MAINARRAY], ir iskvieciam visa [MAINARRAY], jeigu !== tam elementui kuris turi priskirta event.target id; 4) kad gautume nauja lista su elementais iskyrus tais, kurie buvo istrinti, kvieciame nauja RENDER() funkcija, kuri prasides ivykus pokyciui: 5) RENDER() funkcija : apskliaudzia forEach loop procesa kai pagamintas html sarasas yra appendinamas i dokumento html;
+5. Kad istrynus visus filmus, vel atsirastu konteineris su tekstu, tik atsidarius puslapi, RENDER() funkcijoje pridedam dar viena if, kuris tikrina [MAINARRAY] ilgi ir grazina kont. jeigu ilgis === 0;
 
 - second
 -

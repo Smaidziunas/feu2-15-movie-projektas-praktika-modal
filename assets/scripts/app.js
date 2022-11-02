@@ -23,14 +23,15 @@ console.log("els ===", els);
 let mainMoviesArr = [];
 
 // Testavimui pridedam filma:
-{
-  addNewMovieHandler({
-    id: generateId(),
-    title: "test",
-    imageUrl: "https://picsum.photos/id/1003/600/500",
-    rating: "5",
-  });
-}
+/* {
+//   addNewMovieHandler({
+//     id: generateId(),
+//     title: "test",
+//     imageUrl: "https://picsum.photos/id/1003/600/500",
+//     rating: "5",
+//   });
+// }
+*/
 
 // EVENT LISTENERS ======================================================================
 //                  Parodom modala
@@ -89,6 +90,16 @@ function addNewMovieHandler(newMovieObj) {
   mainMoviesArr.push(newMovieObj);
   //paslepiam main sekcija <entry-text>
   els.NoMoviesContainer.style.display = "none";
+  renderMovies();
+}
+
+function renderMovies() {
+  //noMoviesContainer (entry text) rodyti jeigu nera filmu
+  if (mainMoviesArr.length > 0) {
+    els.NoMoviesContainer.style.display = "none";
+  } else if (mainMoviesArr.length >= 0) {
+    els.NoMoviesContainer.style.display = "block";
+  }
   //issivalom saraso konteineri kad nebutu dubliuojami elementai su APPEND funkcija
   els.lists.UlMoviesCont.innerHTML = "";
   //sukam cikla per visa ta MainMovies array, per kuri generuojam nauja filma:
@@ -150,13 +161,24 @@ function makeOneMovieHtmlEl(NewMovieODetails) {
   deleteBtnEl.addEventListener("click", movieDeleteHandler);
   return liEl;
 }
+// ==================================== MOVIE DELETE HANDLER ==========================
 /**
  * reaguoja i event ir leidzia nusitaikyti i event.target tevini elementa, kuris ir yra newMovieArray
  * @param {*} event
  */
 function movieDeleteHandler(event) {
   console.log("delete movie", event.target);
-  event.target.parentElement.parentElement.remove();
+  const deleteIconEl = event.target;
+  const movieLiElToDelete = deleteIconEl.closest("li");
+  const idOfElToBeDeleted = movieLiElToDelete.dataset.movieId;
+  console.log("idOfElToBeDeleted ===", idOfElToBeDeleted);
+
+  // paliekam viska iskyrus ta elementa kurio id yra toks ant kurio paspaudem
+  mainMoviesArr = mainMoviesArr.filter((mObj) => {
+    return mObj.id !== idOfElToBeDeleted;
+  });
+  console.log("mainMoviesArr ===", mainMoviesArr);
+  renderMovies();
 }
 
 // HELPER FUNCTIONS ======================================================================
